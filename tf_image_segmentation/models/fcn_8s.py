@@ -57,7 +57,7 @@ def FCN_8s(image_batch_tensor,
     
     
     #################################################################################
-    ## mean_centered_image_batch = image_batch_float - [_R_MEAN, _G_MEAN, _B_MEAN] ##
+    mean_centered_image_batch = image_batch_float - [_R_MEAN, _G_MEAN, _B_MEAN] ##
     #################################################################################
     
     
@@ -82,7 +82,7 @@ def FCN_8s(image_batch_tensor,
 
             
             #############################################################################################
-            last_layer_logits, end_points = vgg.vgg_16(image_batch_float,  # mean_centered_image_batch,
+            last_layer_logits, end_points = vgg.vgg_16(mean_centered_image_batch,
                                                        num_classes=number_of_classes,
                                                        is_training=is_training,
                                                        spatial_squeeze=False,
